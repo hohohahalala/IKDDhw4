@@ -58,7 +58,7 @@ class PageRank:
 		Q_matrix = np.linspace(1.0/len(P_matrix),1.0/len(P_matrix),len(P_matrix)) 
 
 		for i in range(40):
-			Q_matrix = np.dot(P_matrix,Q_matrix)
+			Q_matrix = np.dot(P_matrix,Q_matrix) #why??????
 		return Q_matrix
 
 
@@ -70,7 +70,7 @@ def main():
 				exit()
 			for p in files:
 				path = 'webpage_data_5/'+ os.path.join(p)
-				f = open(path,'r') #預設是R
+				f = open(path,'r')
 				file_cont = f.read()
 				f.close()
 				page.append(['http://' + os.path.join(p), file_cont])
@@ -112,6 +112,3 @@ def main():
 
 if __name__ == '__main__':
 	main()
-#等於__main__表示目前是執行相同的python檔
-#若是執行module，__name__ == module名稱
-#(python會直接compile import的module)
